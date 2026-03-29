@@ -1,0 +1,29 @@
+# Build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# SQLite
+*.db
+*.db-journal
+
+# Logs
+logs/
+*.log
+
+# Output
+output/
+
+# IDE
+.vs/
+.vscode/
+*.user
+
+# Release packages (large binaries)
+releases/*.zip
+
+# OS
+.DS_Store
+Thumbs.db

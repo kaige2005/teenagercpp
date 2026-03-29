@@ -1,0 +1,450 @@
+{
+  "course": {
+    "id": "cpp_fundamentals",
+    "title": "家庭版游戏化C++零基础学习",
+    "subtitle": "12-16岁青少年编程入门",
+    "story_background": "欢迎来到C++大陆！这里是勇者的试炼场。在8周的冒险中，你将掌握C++魔法，从一个无名小卒成长为BUG猎手大师，最终击败BUG魔王，拯救代码世界！",
+    "total_weeks": 2,
+    "version": "1.0-pilot",
+    "target_environment": {
+      "ide": "Dev-C++ 5.11 便携版",
+      "library": "EasyX 图形库",
+      "os": "Windows 7/10/11"
+    },
+    "gamification": {
+      "points_per_task": 10,
+      "points_per_homework": 20,
+      "points_per_project": 50,
+      "points_per_week_badge": 100,
+      "badges": [
+        {
+          "id": "badge_week1",
+          "name": "新手村勇者",
+          "description": "完成第1周所有课程",
+          "icon": "badges/week1_warrior.png"
+        },
+        {
+          "id": "badge_week2",
+          "name": "迷雾探索者",
+          "description": "完成第2周所有课程",
+          "icon": "badges/week2_explorer.png"
+        }
+      ]
+    }
+  },
+
+  "weeks": [
+    {
+      "week_number": 1,
+      "title": "勇者启程·初识C++大陆",
+      "story_line": "孩子作为「代码小勇者」，来到C++大陆的新手村，需要学会基础的代码魔法，解锁新手村封印。",
+      "badge": "badge_week1",
+      "unlock_condition": "none",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "title": "魔法咒语格式 - 初识C++",
+          "duration_minutes": 45,
+          "story_intro": "欢迎来到新手村！在这里，每段代码都是一段魔法咒语。让我们先学会最基础的喊话魔法...",
+          "key_points": [
+            {
+              "concept": "C++代码基本结构",
+              "analogy": "魔法咒语的格式",
+              "description": "就像念咒语需要特定格式，C++代码也有标准结构：头文件 → main函数 → 执行语句"
+            },
+            {
+              "concept": "cout输出语句",
+              "analogy": "喊话魔法",
+              "description": "cout << '内容' 就像向屏幕喊话，让电脑显示你想说的话"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // 这是我的勇者宣言！\n    cout << \"Hello 代码小勇者!\" << endl;\n    cout << \"我是来征服C++大陆的！\" << endl;\n    \n    return 0;\n}",
+            "explanation": [
+              "第1行：#include <iostream> 是召唤输入输出魔法的咒语",
+              "第4行：main() 是魔法启动的入口",
+              "第6行：cout << 是喊话魔法，把文字输出到屏幕",
+              "第9行：return 0 表示魔法顺利结束"
+            ]
+          },
+          "interactive_demo": {
+            "type": "code_fill_blank",
+            "template": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // 任务：修改下面的文字，输出你的勇者宣言\n    cout << \"________________\" << endl;\n    cout << \"________________\" << endl;\n    \n    return 0;\n}",
+            "blanks": ["第一行文字", "第二行文字"]
+          },
+          "practices": [
+            {
+              "id": "w1l1_p1",
+              "title": "输出我的勇者宣言",
+              "difficulty": 1,
+              "description": "使用cout输出3行文字，介绍你的名字、年龄和冒险目标",
+              "code_template": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // ===== 在这里写下你的代码 =====\n    \n    \n    \n    \n    // ==============================\n    return 0;\n}",
+              "required_keywords": ["cout", "endl"],
+              "expected_output_contains": ["名字", "岁"],
+              "validation_rules": {
+                "min_lines": 5,
+                "required_includes": ["iostream"]
+              },
+              "points": 10,
+              "hints": [
+                "使用 cout << \"你的文字\" << endl; 输出一行",
+                "记得每行代码结束要加分号 ;"
+              ]
+            },
+            {
+              "id": "w1l1_p2",
+              "title": "制作我的勇者名片",
+              "difficulty": 2,
+              "description": "用cout输出一个ASCII艺术风格的勇者名片",
+              "code_template": "",
+              "required_keywords": ["cout"],
+              "expected_output_contains": ["======", "勇者"],
+              "points": 15,
+              "hints": ["可以用多个cout画出一个方框形状"]
+            }
+          ],
+          "homework": {
+            "id": "w1l1_hw",
+            "title": "制作「勇者个人档案」",
+            "description": "用cout输出一份完整的勇者档案，包含：姓名、年龄、职业、喜欢的游戏、冒险宣言",
+            "requirements": ["至少输出5行信息", "包含装饰边框", "使用中文"],
+            "deadline_days": 2,
+            "points": 20
+          }
+        },
+        {
+          "lesson_number": 2,
+          "title": "勇者背包 - 认识变量",
+          "duration_minutes": 50,
+          "story_intro": "作为一名勇者，你需要一个背包来存放各种物品。在C++中，变量就是你的背包...",
+          "key_points": [
+            {
+              "concept": "变量定义",
+              "analogy": "勇者背包",
+              "description": "int hp = 100; 就像在说'背包里有个叫hp的格子，里面放了数字100'"
+            },
+            {
+              "concept": "数据类型",
+              "analogy": "不同类型的格子",
+              "description": "int是数字格，string是文字格，不同类型存放不同类型的数据"
+            },
+            {
+              "concept": "cin输入",
+              "analogy": "接收物品",
+              "description": "cin >> 就像把玩家输入的内容放进背包格子里"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // 定义勇者的属性（创建背包格子）\n    string name;      // 名字格\n    int age;          // 年龄格\n    int hp = 100;     // 血量格，初始100\n    \n    // 输入勇者信息（把物品放进背包）\n    cout << \"请输入勇者名字: \";\n    cin >> name;\n    cout << \"请输入年龄: \";\n    cin >> age;\n    \n    // 显示勇者信息（查看背包）\n    cout << \"\\n=== 勇者档案 ===\" << endl;\n    cout << \"名字: \" << name << endl;\n    cout << \"年龄: \" << age << endl;\n    cout << \"血量: \" << hp << endl;\n    \n    return 0;\n}",
+            "explanation": [
+              "string name; 创建了一个存文字的变量",
+              "int hp = 100; 创建了一个数字变量，初始值100",
+              "cin >> name; 把玩家输入的内容存进name变量",
+              "变量就像有名字的盒子，可以取出也可以放入新值"
+            ]
+          },
+          "practices": [
+            {
+              "id": "w1l2_p1",
+              "title": "创建勇者属性卡",
+              "difficulty": 1,
+              "description": "定义变量存储勇者的攻击力、防御力、速度，并输出显示",
+              "required_keywords": ["int", "string", "cin", "cout"],
+              "expected_output_contains": ["攻击力", "防御力"],
+              "points": 10,
+              "hints": ["先定义变量，再用cin输入，最后用cout输出"]
+            },
+            {
+              "id": "w1l2_p2",
+              "title": "简单的血量计算器",
+              "difficulty": 2,
+              "description": "输入当前血量和受到伤害，计算剩余血量",
+              "code_template": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int hp, damage;\n    \n    cout << \"输入当前血量: \";\n    cin >> hp;\n    cout << \"输入受到伤害: \";\n    cin >> damage;\n    \n    // 计算剩余血量（在这里补充代码）\n    \n    \n    cout << \"剩余血量: \" << hp << endl;\n    \n    return 0;\n}",
+              "required_keywords": ["int", "cin", "cout"],
+              "validation_rules": {
+                "must_contain_assignment": true
+              },
+              "points": 15
+            }
+          ],
+          "homework": {
+            "id": "w1l2_hw",
+            "title": "制作「勇者属性计算器」",
+            "description": "输入基础攻击力和武器加成，计算并输出总攻击力",
+            "points": 20
+          }
+        },
+        {
+          "lesson_number": 3,
+          "title": "伤害计算 - 算术运算符",
+          "duration_minutes": 45,
+          "story_intro": "在战斗中，你需要计算伤害值。学会C++的算术运算符，你就能精确计算每一次攻击的威力！",
+          "key_points": [
+            {
+              "concept": "算术运算符",
+              "analogy": "伤害计算公式",
+              "description": "+ - * / % 就像游戏中的伤害计算公式"
+            },
+            {
+              "concept": "取余运算",
+              "analogy": "幸运判定",
+              "description": "% 运算符可以得到除法的余数，常用来判断奇偶、循环计数"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "// 伤害计算示例\nint attack = 50;\nint defense = 20;\nint damage = attack - defense;  // 基础伤害\n\n// 暴击伤害（2倍）\nint crit_damage = damage * 2;\n\n// 分摊伤害给3个敌人\nint per_enemy = damage / 3;\n\n// 判断攻击次数是奇数还是偶数\nint hit_count = 5;\nif (hit_count % 2 == 0) {\n    cout << \"偶数次攻击！\" << endl;\n}",
+            "explanation": [
+              "* 是乘法，/ 是除法（整数除法会舍去小数）",
+              "% 是取余，5 % 2 结果是 1",
+              "运算符有优先级，可以用括号改变顺序"
+            ]
+          },
+          "practices": [
+            {
+              "id": "w1l3_p1",
+              "title": "制作游戏伤害计算器",
+              "difficulty": 2,
+              "description": "输入攻击力、防御力，计算普通伤害和暴击伤害",
+              "required_keywords": ["int", "*", "-"],
+              "validation_rules": {
+                "must_contain_expression": true
+              },
+              "points": 15
+            }
+          ],
+          "homework": {
+            "id": "w1l3_hw",
+            "title": 「完整版伤害计算器」，
+            "description": "输入攻击力、防御力、暴击率，输出普通伤害和暴击伤害",
+            "points": 20
+          }
+        }
+      ],
+      "project": {
+        "id": "week1_project",
+        "name": "猜数字游戏（基础版）",
+        "description": "你的第一个完整游戏项目！",
+        "difficulty": "入门级",
+        "requirements": [
+          {
+            "id": "req1",
+            "description": "在程序中预设一个幸运数字",
+            "milestone": true
+          },
+          {
+            "id": "req2",
+            "description": "玩家输入猜测的数字",
+            "milestone": true
+          },
+          {
+            "id": "req3",
+            "description": "判断并提示"大了"、"小了"或"猜对了"",
+            "milestone": true
+          },
+          {
+            "id": "req4",
+            "description": "猜对后显示祝贺信息",
+            "milestone": true
+          }
+        ],
+        "extensions": [
+          "增加猜错后的鼓励话术",
+          "每次猜测后显示已猜次数",
+          "设置猜测上限，超过提示游戏结束"
+        ],
+        "starter_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int secretNumber = 42;  // 预设的幸运数字\n    int guess;              // 玩家猜测的数字\n    \n    // ===== 在这里完成你的猜数字游戏 =====\n    \n    \n    \n    \n    \n    // ===================================\n    \n    return 0;\n}",
+        "points": 50
+      }
+    },
+
+    {
+      "week_number": 2,
+      "title": "分支魔法·选择的力量",
+      "story_line": "小勇者来到迷雾森林，需要根据不同情况做出选择，学会分支魔法。",
+      "badge": "badge_week2",
+      "unlock_condition": "complete_week1",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "title": "岔路口的选择 - if/else",
+          "duration_minutes": 50,
+          "story_intro": "迷雾森林中充满了岔路。if/else就像选择走哪条路——如果条件满足，就走这条路；否则，就走另一条...",
+          "key_points": [
+            {
+              "concept": "if/else双分支",
+              "analogy": "岔路口选择",
+              "description": "if(条件) { 满足时执行 } else { 不满足时执行 }"
+            },
+            {
+              "concept": "关系运算符",
+              "analogy": "判断条件",
+              "description": "> < == != >= <= 用来比较两个值的关系"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "int hp = 30;\nint monsterPower = 50;\n\n// 判断：如果血量大于50就战斗，否则逃跑\nif (hp > 50) {\n    cout << \"血量充足，与怪物战斗！\" << endl;\n    cout << \"发动攻击！\" << endl;\n} else {\n    cout << \"血量不足，先撤退！\" << endl;\n    cout << \"快速逃跑...\" << endl;\n}\n\n// 判断数字奇偶\nint number = 7;\nif (number % 2 == 0) {\n    cout << number << \"是偶数\" << endl;\n} else {\n    cout << number << \"是奇数\" << endl;\n}",
+            "explanation": [
+              "if 后面括号里是判断条件，结果是真或假",
+              "== 是判断相等，= 是赋值，两者容易混淆！",
+              "else 是可选的，可以只有if没有else"
+            ]
+          },
+          "practices": [
+            {
+              "id": "w2l1_p1",
+              "title": "战斗判断系统",
+              "difficulty": 1,
+              "description": "输入血量和怪物攻击力，判断是战斗还是逃跑",
+              "required_keywords": ["if", "else", ">", "<"],
+              "expected_output_contains": ["战斗", "逃跑"],
+              "points": 10
+            },
+            {
+              "id": "w2l1_p2",
+              "title": "猜数字大小判断",
+              "difficulty": 2,
+              "description": "比较两个数字，输出哪个更大",
+              "code_template": "",
+              "required_keywords": ["if", "else if", ">", "<", "=="],
+              "validation_rules": {
+                "must_handle_all_branches": true
+              },
+              "points": 15,
+            }
+          ],
+          "homework": {
+            "id": "w2l1_hw",
+            "title": "完善战斗系统",
+            "description": "增加判断：如果怪物攻击力超过血量2倍则逃跑，否则战斗",
+            "points": 20
+          }
+        },
+        {
+          "lesson_number": 2,
+          "title": "多路迷宫 - if/else if/else",
+          "duration_minutes": 45,
+          "story_intro": "面对复杂的多路迷宫，双分支已经不够用了。学会多分支，应对各种复杂情况！",
+          "key_points": [
+            {
+              "concept": "多分支结构",
+              "analogy": "多路选择",
+              "description": "if(条件1)... else if(条件2)... else... 可以处理多种情况"
+            },
+            {
+              "concept": "分支嵌套",
+              "analogy": "套娃式选择",
+              "description": "一个分支里面还可以有分支，处理更复杂的逻辑"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "// 根据游戏分数判断段位\nint score;\ncout << \"输入你的游戏分数: \";\ncin >> score;\n\nif (score >= 3000) {\n    cout << \"王者段位！\" << endl;\n} else if (score >= 2000) {\n    cout << \"钻石段位！\" << endl;\n} else if (score >= 1000) {\n    cout << \"黄金段位！\" << endl;\n} else if (score >= 500) {\n    cout << \"白银段位！\" << endl;\n} else {\n    cout << \"青铜段位，继续加油！\" << endl;\n}",
+            "explanation": [
+              "else if 可以有很多个，依次判断",
+              "一旦某个条件满足，后面的else if 都不会执行",
+              "最后的 else 捕获所有不满足前面条件的情况"
+            ]
+          },
+          "practices": [
+            {
+              "id": "w2l2_p1",
+              "title": "段位判定系统",
+              "difficulty": 2,
+              "description": "根据分数判定游戏段位（青铜/白银/黄金/钻石/王者）",
+              "required_keywords": ["if", "else if", ">="],
+              "points": 15
+            }
+          ],
+          "homework": {
+            "id": "w2l2_hw",
+            "title": "升级判定系统",
+            "description": "增加等级显示和经验值计算",
+            "points": 20
+          }
+        },
+        {
+          "lesson_number": 3,
+          "title": "多重机关门 - 逻辑运算符",
+          "duration_minutes": 45,
+          "story_intro": "某些大门需要同时满足多个条件才能打开。学会逻辑运算符，解开所有机关！",
+          "key_points": [
+            {
+              "concept": "逻辑与 &&",
+              "analogy": "双重机关",
+              "description": "条件1 && 条件2，两个条件都满足才为真"
+            },
+            {
+              "concept": "逻辑或 ||",
+              "analogy": "任意一个钥匙",
+              "description": "条件1 || 条件2，任一条件满足就为真"
+            },
+            {
+              "concept": "逻辑非 !",
+              "analogy": "反向开关",
+              "description": "!条件，把真变假，假变真"
+            }
+          ],
+          "code_example": {
+            "cpp_code": "int level = 15;\nbool hasKey = true;\nint hp = 80;\n\n// 进入隐藏关卡需要：等级≥10 且 有钥匙\nif (level >= 10 && hasKey) {\n    cout << \"隐藏关卡开启！\" << endl;\n} else {\n    cout << \"进入失败，条件不足\" << endl;\n}\n\n// 判断是否可以复活：血量>0 或 有复活道具\nbool hasReviveItem = false;\nif (hp > 0 || hasReviveItem) {\n    cout << \"勇士还能继续战斗！\" << endl;\n}",
+            "explanation": [
+              "&&": "两边都为真，结果才为真",
+              "||": "有一边为真，结果就为真",
+              "!": "把条件的结果反转"
+            ]
+          },
+          "practices": [
+            {
+              "id": "w2l3_p1",
+              "title": "机关门解锁",
+              "difficulty": 2,
+              "description": "输入等级、钥匙、密码，判断是否满足开门条件",
+              "required_keywords": ["&&", "||"],
+              "points": 15
+            }
+          ],
+          "homework": {
+            "id": "w2l3_hw",
+            "title": "复杂条件判断器",
+            "description": "结合所有逻辑运算符，实现复合条件判断",
+            "points": 20
+          }
+        }
+      ],
+      "project": {
+        "id": "week2_project",
+        "name": "猜数字游戏（进阶版）",
+        "description": "升级你的猜数字游戏！",
+        "difficulty": "提高级",
+        "requirements": [
+          {
+            "id": "w2_req1",
+            "description": "限制最多猜5次",
+            "milestone": true
+          },
+          {
+            "id": "w2_req2",
+            "description": "每次提示剩余次数",
+            "milestone": true
+          },
+          {
+            "id": "w2_req3",
+            "description": "猜对显示用了多少次",
+            "milestone": true
+          },
+          {
+            "id": "w2_req4",
+            "description": "超过次数提示游戏结束",
+            "milestone": true
+          }
+        ],
+        "extensions": [
+          "增加难度选择（简单10次，困难3次）",
+          "猜完后询问是否再玩一局",
+          "显示猜测历史记录"
+        ],
+        "starter_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int secretNumber = 42;\n    int guess;\n    int maxAttempts = 5;\n    int attempts = 0;\n    \n    cout << \"=== 猜数字游戏 ===\" << endl;\n    cout << \"我想了一个1-100的数字，你有\" << maxAttempts << \"次机会猜。\" << endl;\n    \n    // ===== 在这里添加你的循环和判断逻辑 =====\n    \n    \n    \n    \n    \n    \n    // =========================================\n    \n    return 0;\n}",
+        "points": 50,
+        "challenge_hint": "需要用到的知识点：while/for循环、if/else判断、计数器变量"
+      }
+    }
+  ]
+}
