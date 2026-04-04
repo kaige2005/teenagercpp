@@ -61,6 +61,19 @@ namespace TeenCppEdu.Core.Models
     }
 
     /// <summary>
+    /// 课程阶段进度（用于新格式课程）
+    /// </summary>
+    public class LessonPhaseProgress
+    {
+        public int Id { get; set; }
+        public string LessonId { get; set; }
+        public bool KnowledgeCompleted { get; set; }
+        public bool ChallengeCompleted { get; set; }
+        public int EarnedXp { get; set; }
+        public DateTime LastUpdated { get; set; }
+    }
+
+    /// <summary>
     /// 单次学习记录
     /// </summary>
     public class StudyRecord

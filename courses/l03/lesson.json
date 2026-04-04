@@ -1,0 +1,168 @@
+{
+  "id": "L03",
+  "sequence": 3,
+  "title": "第3课：数组探险",
+  "subtitle": "魔法储物柜的秘密",
+  "prerequisiteId": "L02",
+  "requiredExp": 150,
+  "knowledgePoints": [
+    "数组的基本概念和用途",
+    "数组声明语法：类型 数组名[大小]",
+    "数组元素访问：数组名[索引]",
+    "数组索引从0开始",
+    "数组元素的遍历方法",
+    "使用循环处理数组"
+  ],
+  "phases": [
+    {
+      "type": "knowledge",
+      "title": "认识数组",
+      "sections": [
+        {
+          "type": "scene",
+          "order": 1,
+          "title": "数据仓库的难题",
+          "content": "冒险者来到了数据仓库，这里有100个魔法储物柜。每个柜子可以存放一个数字，但是怎么记住哪个柜子里有什么？\n\n以前你需要这样声明变量：\nint gem1 = 10;\nint gem2 = 20;\nint gem3 = 30;\n... // 太麻烦了！\n\n如果宝石增加到100个怎么办？数组就是你的储物柜编号系统！"
+        },
+        {
+          "type": "concept",
+          "order": 2,
+          "title": "什么是数组",
+          "content": "数组就是一排连续的储物柜，每个柜子都有编号（从0开始）。所有柜子只能存放同一种类型的数据。",
+          "visual": {
+            "type": "array_diagram",
+            "caption": "数组就像一排编号储物柜"
+          },
+          "keyPoints": [
+            "声明格式：int arr[5]; 表示5个整数的数组",
+            "索引从0开始：第一个元素是arr[0]，最后一个是arr[4]",
+            "访问元素：arr[索引] 可以读取或修改该位置的值",
+            "数组大小固定：声明后不能改变"
+          ]
+        },
+        {
+          "type": "quiz",
+          "order": 3,
+          "title": "知识测验",
+          "questions": [
+            {
+              "id": "q1",
+              "question": "数组 int scores[5] 有几个元素？",
+              "options": ["A. 4个", "B. 5个", "C. 6个"],
+              "answer": 1,
+              "explanation": "数组声明中[5]表示数组有5个元素，索引从0到4。",
+              "xp": 10
+            },
+            {
+              "id": "q2",
+              "question": "如何访问数组的第一个元素？",
+              "options": ["A. scores[1]", "B. scores[0]", "C. scores.first"],
+              "answer": 1,
+              "explanation": "C++数组索引从0开始，所以第一个元素的索引是0。",
+              "xp": 10
+            },
+            {
+              "id": "q3",
+              "question": "下面哪个数组声明是正确的？",
+              "options": ["A. int arr[];", "B. int arr[10];", "C. arr[10] int;"],
+              "answer": 1,
+              "explanation": "正确的声明格式是：类型 数组名[大小];",
+              "xp": 10
+            }
+          ]
+        },
+        {
+          "type": "fillblank",
+          "order": 4,
+          "title": "代码填空",
+          "description": "补全下面的数组初始化代码",
+          "code": "// 声明一个有5个元素的数组\nint gems[___A___];\n\n// 给每个储物柜放入宝石\ngems[0] = 10;\ngems[1] = 20;\ngems[2] = 30;\n___B___  // gems[3] = 40\n___C___  // gems[4] = 50\n\n// 输出第3个柜子的宝石（编号为2）\ncout << gems[___D___] << endl;",
+          "blanks": [
+            {
+              "id": "A",
+              "hint": "数组有5个元素",
+              "answer": "5",
+              "xp": 10
+            },
+            {
+              "id": "B",
+              "hint": "给第4个元素（索引3）赋值为40",
+              "answer": "gems[3] = 40;",
+              "altAnswers": ["gems[3]=40;", "gems[3] = 40"],
+              "xp": 10
+            },
+            {
+              "id": "C",
+              "hint": "给第5个元素（索引4）赋值为50",
+              "answer": "gems[4] = 50;",
+              "altAnswers": ["gems[4]=50;", "gems[4] = 50"],
+              "xp": 10
+            },
+            {
+              "id": "D",
+              "hint": "第3个元素的索引是多少？",
+              "answer": "2",
+              "xp": 10
+            }
+          ]
+        }
+      ],
+      "totalXp": 60
+    },
+    {
+      "type": "practice",
+      "title": "计算宝石总价值",
+      "description": "使用数组存储5个宝石的价值，然后计算它们的总和。",
+      "steps": [
+        {
+          "order": 1,
+          "title": "声明数组",
+          "description": "声明一个能存放5个整数的数组，命名为 gems",
+          "hint": "使用格式：int 数组名[大小];"
+        },
+        {
+          "order": 2,
+          "title": "给数组赋值",
+          "description": "给数组的5个元素赋值：10, 20, 30, 40, 50。注意索引从0开始！",
+          "hint": "gems[0] = 10;  // 第一个元素\ngems[1] = 20;  // 第二个元素"
+        },
+        {
+          "order": 3,
+          "title": "计算总和",
+          "description": "声明一个sum变量，把数组的所有元素加起来",
+          "hint": "int sum = 0;\nsum = sum + gems[0];  // sum变为10\nsum = sum + gems[1];  // sum变为30"
+        },
+        {
+          "order": 4,
+          "title": "输出结果",
+          "description": "使用cout输出宝石的总价值",
+          "hint": "cout << \"宝石总价值：\" << sum << endl;"
+        }
+      ],
+      "templatePath": "courses/l03/templates/main.cpp",
+      "checkRulesPath": "courses/l03/checks/rules.json",
+      "rewardExp": 100,
+      "rewardBadge": "array_explorer"
+    },
+    {
+      "type": "challenge",
+      "title": "Bug猎手：找出最大值",
+      "description": "下面的程序想找出宝石中的最大值，但有个隐藏的Bug。请找出并修复它！",
+      "mode": "bug_hunt",
+      "difficulty": "medium",
+      "buggyCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int gems[5] = {25, 80, 45, 90, 30};\n    int max = 0;  // 这里可能有Bug！\n    \n    for (int i = 0; i < 5; i++) {\n        if (gems[i] > max) {\n            max = gems[i];\n        }\n    }\n    \n    cout << \"最大宝石价值：\" << max << endl;\n    return 0;\n}",
+      "hints": [
+        "如果所有宝石价值都是负数，结果会怎样？",
+        "max的初始值应该设为多少才安全？"
+      ],
+      "expectedFix": "int max = gems[0];",
+      "altFixes": ["int max = -1;", "int max = gems[0]"],
+      "explanation": "如果数组中全是负数，初始max=0会导致错误结果（0比所有负数都大）。应该将max初始化为数组的第一个元素gems[0]，或者一个足够小的值如-1。",
+      "rewardExp": 30,
+      "rewardBadge": "bug_hunter_novice"
+    }
+  ],
+  "iconPath": "assets/icons/lesson03.png",
+  "mapX": 500,
+  "mapY": 180
+}

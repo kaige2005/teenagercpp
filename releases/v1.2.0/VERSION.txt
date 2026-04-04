@@ -1,0 +1,16 @@
+TeenC++ Education System
+Version: 1.2.0
+Release Date: 2026-04-04
+Build: Release
+.NET Framework: 4.8
+
+Features:
+- Lesson 01: Hello C++ (Legacy Format)
+- Lesson 02: Branch Magic (Legacy Format)
+- Lesson 03: Array Adventure (New Phase Format)
+- Bug Hunter Challenge Mode
+- Phase Progress Persistence
+- Legacy & New Format Compatibility
+
+Author: Carl & Claude
+Repository: GitHub (to be published)

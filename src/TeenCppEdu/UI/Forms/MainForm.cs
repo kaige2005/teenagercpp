@@ -384,7 +384,8 @@ namespace TeenCppEdu.UI.Forms
             try
             {
                 LoggerService.Instance?.Info($"正在创建课程窗口: {lessonId}");
-                var lessonForm = new LessonForm(lessonId, _db, _progress);
+                // v1.2+ 使用ModernLessonForm支持多阶段课程
+                var lessonForm = new ModernLessonForm(lessonId, _db, _progress);
                 LoggerService.Instance?.Info("课程窗口创建成功，准备显示");
 
                 var result = lessonForm.ShowDialog();

@@ -77,9 +77,21 @@ namespace TeenCppEdu.Services.Database
                     Feedback TEXT
                 );";
 
+            // 课程阶段进度表（v1.2+支持）
+            string createPhaseProgress = @"
+                CREATE TABLE IF NOT EXISTS LessonPhaseProgress (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    LessonId TEXT NOT NULL UNIQUE,
+                    KnowledgeCompleted INTEGER DEFAULT 0,
+                    ChallengeCompleted INTEGER DEFAULT 0,
+                    EarnedXp INTEGER DEFAULT 0,
+                    LastUpdated TEXT DEFAULT CURRENT_TIMESTAMP
+                );";
+
             ExecuteNonQuery(createStudentProgress);
             ExecuteNonQuery(createStudyRecord);
             ExecuteNonQuery(createSubmission);
+            ExecuteNonQuery(createPhaseProgress);
         }
 
         private void ExecuteNonQuery(string sql)
@@ -234,6 +246,76 @@ namespace TeenCppEdu.Services.Database
                 LastStudyTime = DateTime.Parse(reader.GetString(9)),
                 TotalStudyMinutes = reader.GetInt32(10)
             };
+        }
+
+        // ========== 课程阶段进度操作 ==========
+
+        public LessonPhaseProgress GetLessonPhaseProgress(string lessonId)
+        {
+            string sql = "SELECT * FROM LessonPhaseProgress WHERE LessonId = @lessonId";
+            using (var cmd = new SQLiteCommand(sql, _connection))
+            {
+                cmd.Parameters.AddWithValue("@lessonId", lessonId);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new LessonPhaseProgress
+                        {
+                            Id = reader.GetInt32(0),
+                            LessonId = reader.GetString(1),
+                            KnowledgeCompleted = reader.GetInt32(2) == 1,
+                            ChallengeCompleted = reader.GetInt32(3) == 1,
+                            EarnedXp = reader.GetInt32(4),
+                            LastUpdated = DateTime.Parse(reader.GetString(5))
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void SaveLessonPhaseProgress(LessonPhaseProgress progress)
+        {
+            // 检查是否存在
+            var existing = GetLessonPhaseProgress(progress.LessonId);
+
+            if (existing == null)
+            {
+                // 插入新记录
+                string insertSql = @"
+                    INSERT INTO LessonPhaseProgress (LessonId, KnowledgeCompleted, ChallengeCompleted, EarnedXp, LastUpdated)
+                    VALUES (@lessonId, @knowledge, @challenge, @xp, @updated)";
+                using (var cmd = new SQLiteCommand(insertSql, _connection))
+                {
+                    cmd.Parameters.AddWithValue("@lessonId", progress.LessonId);
+                    cmd.Parameters.AddWithValue("@knowledge", progress.KnowledgeCompleted ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@challenge", progress.ChallengeCompleted ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@xp", progress.EarnedXp);
+                    cmd.Parameters.AddWithValue("@updated", progress.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss"));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                // 更新现有记录
+                string updateSql = @"
+                    UPDATE LessonPhaseProgress SET
+                        KnowledgeCompleted = @knowledge,
+                        ChallengeCompleted = @challenge,
+                        EarnedXp = @xp,
+                        LastUpdated = @updated
+                    WHERE LessonId = @lessonId";
+                using (var cmd = new SQLiteCommand(updateSql, _connection))
+                {
+                    cmd.Parameters.AddWithValue("@knowledge", progress.KnowledgeCompleted ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@challenge", progress.ChallengeCompleted ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@xp", progress.EarnedXp);
+                    cmd.Parameters.AddWithValue("@updated", progress.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@lessonId", progress.LessonId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Dispose()

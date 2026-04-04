@@ -28,6 +28,15 @@ namespace TeenCppEdu.Core.Checkers
         public CheckResult CheckCode(string sourceCode, LessonCheckRules rules)
         {
             var result = new CheckResult();
+
+            // 防御性检查
+            if (rules?.Rules == null)
+            {
+                result.Summary = "❌ 检查规则未加载，无法进行检查";
+                result.IsPassed = false;
+                return result;
+            }
+
             int totalScore = 0;
             int maxScore = 0;
             bool requiredPassed = true;
