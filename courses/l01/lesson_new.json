@@ -1,0 +1,171 @@
+{
+  "id": "L01",
+  "sequence": 1,
+  "title": "第1课：你好，C++！",
+  "subtitle": "程序员的第一个魔法咒语",
+  "prerequisiteId": null,
+  "requiredExp": 0,
+  "knowledgePoints": [
+    "C++ 程序的魔法结构",
+    "cout 输出咒语的使用",
+    "换行符 endl 的神奇作用",
+    "分号 ; 作为咒语结束符",
+    "main 函数是魔法入口"
+  ],
+  "phases": [
+    {
+      "type": "knowledge",
+      "title": "认识魔法咒语",
+      "sections": [
+        {
+          "type": "scene",
+          "order": 1,
+          "title": "代码魔法学院",
+          "content": "欢迎来到代码魔法学院！\n\n在这里，你将学习最强大的魔法——编程。每一行代码都是一个咒语，可以让电脑为你做神奇的事情。\n\n今天，我们将学习最基本的打招呼咒语。在魔法世界里，魔法师们见面会说'你好'。让我们用C++来向这个世界打招呼吧！"
+        },
+        {
+          "type": "concept",
+          "order": 2,
+          "title": "魔法的结构",
+          "content": "一个完整的C++程序就像一段魔法咒语，有固定的结构和规则。",
+          "keyPoints": [
+            "#include <iostream> - 召唤输入输出魔法书",
+            "using namespace std; - 使用标准魔法namespace",
+            "int main() - 魔法入口，程序从这里开始",
+            "cout << - 输出魔法，把文字显示到屏幕",
+            "endl - 换行魔法，让光标移到下一行",
+            "; - 每句咒语必须以分号结束",
+            "return 0; - 魔法成功完成，返回0"
+          ]
+        },
+        {
+          "type": "quiz",
+          "order": 3,
+          "title": "魔法知识测验",
+          "questions": [
+            {
+              "id": "l01q1",
+              "question": "C++程序的入口是哪个函数？",
+              "options": ["A. start()", "B. main()", "C. begin()"],
+              "answer": 1,
+              "explanation": "main()函数是C++程序的入口，程序从这里开始执行。",
+              "xp": 10
+            },
+            {
+              "id": "l01q2",
+              "question": "使用cout输出时，用什么符号连接要输出的内容？",
+              "options": ["A. >>", "B. <<", "C. +"],
+              "answer": 1,
+              "explanation": "C++中使用 << （插入运算符）将内容输出到屏幕。",
+              "xp": 10
+            },
+            {
+              "id": "l01q3",
+              "question": "每条C++语句必须以什么符号结束？",
+              "options": ["A. 句号 .", "B. 分号 ;", "C. 逗号 ,"],
+              "answer": 1,
+              "explanation": "C++中每条语句必须以分号 ; 结束，这是语法规则。",
+              "xp": 10
+            }
+          ]
+        },
+        {
+          "type": "fillblank",
+          "order": 4,
+          "title": "咒语填空练习",
+          "description": "补全下面的打招呼咒语",
+          "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // 使用 ___A___ 魔法向世界打招呼\n    cout << ___B___ << endl;\n    \n    // 魔法成功，返回 ___C___\n    return ___D___;\n}",
+          "blanks": [
+            {
+              "id": "A",
+              "hint": "输出魔法的咒语是？",
+              "answer": "cout",
+              "xp": 10
+            },
+            {
+              "id": "B",
+              "hint": "要输出什么内容？用双引号包围",
+              "answer": "\"Hello, World!\"",
+              "altAnswers": ["\"你好，世界!\"", "\"Hello C++!\""],
+              "xp": 10
+            },
+            {
+              "id": "C",
+              "hint": "这个注释已经告诉你了",
+              "answer": "0",
+              "xp": 10
+            },
+            {
+              "id": "D",
+              "hint": "程序成功完成的返回值",
+              "answer": "0",
+              "xp": 10
+            }
+          ]
+        }
+      ],
+      "totalXp": 50
+    },
+    {
+      "type": "practice",
+      "title": "编写你的专属咒语",
+      "description": "学习编写个性化的问候程序，让电脑说出你想说的话。",
+      "steps": [
+        {
+          "order": 1,
+          "title": "理解模板",
+          "description": "观察右侧代码模板，找到包含 'Hello, World!' 的那一行。",
+          "hint": "这就是cout输出语句，双引号里的内容会被显示出来。"
+        },
+        {
+          "order": 2,
+          "title": "修改内容",
+          "description": "把双引号里的文字改成你想说的话，比如你的名字或者一句问候。",
+          "hint": "cout << \"你好，我是小明！\" << endl;"
+        },
+        {
+          "order": 3,
+          "title": "添加多行输出",
+          "description": "尝试添加第二行cout，让程序说两句话。",
+          "hint": "复制cout那一行，修改双引号里的内容。"
+        },
+        {
+          "order": 4,
+          "title": "检查代码",
+          "description": "点击'检查代码'按钮，看看你的咒语是否正确。",
+          "hint": "别忘了每行末尾的分号！"
+        }
+      ],
+      "templatePath": "courses/l01/templates/main_practice.cpp",
+      "checkRulesPath": "courses/l01/checks/rules_practice.json",
+      "rewardExp": 80,
+      "rewardBadge": "hello_master"
+    },
+    {
+      "type": "challenge",
+      "title": "Bug猎手：咒语纠错",
+      "description": "下面的程序有几个语法错误，请找出并修复它们！",
+      "mode": "bug_hunt",
+      "difficulty": "easy",
+      "buggyCode": "#include <iostream>\nusing namespace std\n\nint main() {\n    cout << Hello World! << endl\n    cout << \"第二行输出\";\n    return 0\n}",
+      "hints": [
+        "第3行末尾少了什么？",
+        "第6行的文字为什么没有用引号？",
+        "第7行和第8行末尾少了什么？"
+      ],
+      "expectedFix": "第3行加分号，第6行给Hello World!加双引号，第7行和第8行加分号",
+      "altFixes": [
+        "using namespace std;",
+        "cout << \"Hello World!\" << endl;",
+        "第7行加分号",
+        "第8行加分号"
+      ],
+      "explanation": "C++程序中，using namespace std;语句需要分号结束，输出的字符串必须用双引号包围，每条语句都要以分号结束。",
+      "rewardExp": 20,
+      "rewardBadge": "bug_hunter_novice"
+    }
+  ],
+  "iconPath": "assets/icons/lesson01.png",
+  "mapX": 100,
+  "mapY": 300
+}
