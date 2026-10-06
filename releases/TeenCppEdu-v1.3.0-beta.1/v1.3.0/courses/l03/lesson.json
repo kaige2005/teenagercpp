@@ -146,7 +146,7 @@
           "order": 4,
           "title": "输出结果",
           "description": "使用cout输出法术总强度",
-          "hint": "cout << \"法术总强度：\" << total << endl;"
+          "hint": "cout << "法术总强度：" << total << endl;"
         }
       ],
       "templatePath": "courses/l03/templates/main.cpp",
@@ -160,7 +160,7 @@
       "description": "下面的程序想找出法术槽位中的最强法术（最大值），但有个隐藏的Bug。请找出并修复它！",
       "mode": "bug_hunt",
       "difficulty": "medium",
-      "buggyCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int spells[5] = {25, 80, 45, 90, 30};  // 5个法术强度\n    int maxPower = 0;  // 这里可能有Bug！\n    \n    for (int i = 0; i < 5; i++) {\n        if (spells[i] > maxPower) {\n            maxPower = spells[i];\n        }\n    }\n    \n    cout << \"最强法术强度：\" << maxPower << endl;\n    return 0;\n}",
+      "buggyCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int spells[5] = {25, 80, 45, 90, 30};  // 5个法术强度\n    int maxPower = 0;  // 这里可能有Bug！\n    \n    for (int i = 0; i < 5; i++) {\n        if (spells[i] > maxPower) {\n            maxPower = spells[i];\n        }\n    }\n    \n    cout << "最强法术强度：" << maxPower << endl;\n    return 0;\n}",
       "hints": [
         "如果所有法术都是负面法术（数值为负），结果会怎样？",
         "maxPower的初始值应该设为多少才安全？"

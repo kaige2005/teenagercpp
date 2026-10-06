@@ -1,0 +1,67 @@
+{
+  "lessonId": "L01",
+  "expectedOutput": null,
+  "allowPartialMatch": true,
+  "rules": [
+    {
+      "id": "R01_structure",
+      "name": "代码结构检查",
+      "type": 2,
+      "score": 25,
+      "isRequired": true,
+      "parameters": {
+        "requiredElements": "include,main"
+      },
+      "failMessage": "代码还缺少必要的结构，请参考模板！",
+      "successMessage": "代码结构正确！"
+    },
+    {
+      "id": "R02_syntax",
+      "name": "基础语法检查",
+      "type": 0,
+      "score": 25,
+      "isRequired": true,
+      "parameters": {},
+      "failMessage": "发现了一些语法问题，请仔细检查括号、分号等！",
+      "successMessage": "语法检查通过！"
+    },
+    {
+      "id": "R03_keyword",
+      "name": "cout 输出检查",
+      "type": 1,
+      "score": 25,
+      "isRequired": true,
+      "parameters": {
+        "keywords": "cout",
+        "matchMode": "all"
+      },
+      "failMessage": "还没有使用 cout 进行输出哦！",
+      "successMessage": "找到 cout 输出语句！"
+    },
+    {
+      "id": "R04_keyword2",
+      "name": "自定义内容检查",
+      "type": 1,
+      "score": 15,
+      "isRequired": false,
+      "parameters": {
+        "keywords": "Hello",
+        "matchMode": "any"
+      },
+      "failMessage": "很好！你已经修改了默认内容！",
+      "successMessage": "检测到自定义内容，继续加油！"
+    },
+    {
+      "id": "R05_style",
+      "name": "代码风格",
+      "type": 4,
+      "score": 10,
+      "isRequired": false,
+      "parameters": {
+        "requireComments": false
+      },
+      "failMessage": "代码还有一些改进空间",
+      "successMessage": "代码风格良好！"
+    }
+  ]
+}

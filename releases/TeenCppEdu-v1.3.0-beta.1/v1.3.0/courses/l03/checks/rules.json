@@ -1,0 +1,128 @@
+{
+  "lessonId": "L03",
+  "version": "1.0.0",
+  "checks": [
+    {
+      "id": "check_syntax",
+      "name": "语法检查",
+      "type": "syntax",
+      "enabled": true,
+      "description": "检查C++语法是否正确"
+    },
+    {
+      "id": "check_array_declare",
+      "name": "数组声明检查",
+      "type": "keyword",
+      "enabled": true,
+      "description": "检查是否声明了gems数组",
+      "patterns": [
+        "int\\s+gems\\s*\\[\\s*5\\s*\\]"
+      ],
+      "required": true,
+      "failMessage": "需要声明 int gems[5] 数组"
+    },
+    {
+      "id": "check_array_assign",
+      "name": "数组赋值检查",
+      "type": "keyword",
+      "enabled": true,
+      "description": "检查是否给数组元素赋值",
+      "patterns": [
+        "gems\\s*\\[.*\\]\\s*=\\s*\\d+"
+      ],
+      "minMatches": 3,
+      "required": true,
+      "failMessage": "需要给至少3个数组元素赋值"
+    },
+    {
+      "id": "check_sum_variable",
+      "name": "求和变量检查",
+      "type": "keyword",
+      "enabled": true,
+      "description": "检查是否声明了sum变量",
+      "patterns": [
+        "int\\s+sum",
+        "sum\\s*=\\s*0"
+      ],
+      "requiredMatches": 1,
+      "required": true,
+      "failMessage": "需要声明sum变量用于累加"
+    },
+    {
+      "id": "check_sum_calculation",
+      "name": "累加逻辑检查",
+      "type": "keyword",
+      "enabled": true,
+      "description": "检查是否有数组元素累加逻辑",
+      "patterns": [
+        "sum\\s*\\+?=\\s*sum\\s*\\+\\s*gems",
+        "sum\\s*\\+=\\s*gems",
+        "sum\\s*=\\s*sum\\s*\\+\\s*\\w*gems"
+      ],
+      "requiredMatches": 1,
+      "required": true,
+      "failMessage": "需要使用sum累加gems数组的元素"
+    },
+    {
+      "id": "check_output",
+      "name": "输出检查",
+      "type": "keyword",
+      "enabled": true,
+      "description": "检查是否输出了总和",
+      "patterns": [
+        "cout\\s*<<\\s*.*sum",
+        "总价值",
+        "总和"
+      ],
+      "requiredMatches": 1,
+      "required": true,
+      "failMessage": "需要输出计算结果"
+    },
+    {
+      "id": "check_include",
+      "name": "头文件检查",
+      "type": "structure",
+      "enabled": true,
+      "description": "检查是否包含iostream头文件",
+      "requirements": [
+        "#include <iostream>"
+      ],
+      "required": true,
+      "failMessage": "需要包含iostream头文件"
+    },
+    {
+      "id": "check_namespace",
+      "name": "命名空间检查",
+      "type": "structure",
+      "enabled": true,
+      "description": "检查是否使用std命名空间",
+      "requirements": [
+        "using namespace std;"
+      ],
+      "required": true,
+      "failMessage": "需要使用标准命名空间"
+    },
+    {
+      "id": "check_main_function",
+      "name": "主函数检查",
+      "type": "structure",
+      "enabled": true,
+      "description": "检查是否有main函数",
+      "requirements": [
+        "int main()",
+        "return 0;"
+      ],
+      "required": true,
+      "failMessage": "需要有完整的main函数"
+    }
+  ],
+  "scoring": {
+    "passThreshold": 70,
+    "maxScore": 100,
+    "criticalChecks": [
+      "check_syntax",
+      "check_array_declare",
+      "check_sum_calculation"
+    ]
+  }
+}

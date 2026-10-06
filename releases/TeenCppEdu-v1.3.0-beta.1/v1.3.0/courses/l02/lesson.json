@@ -157,15 +157,6 @@
       "mode": "bug_hunt",
       "difficulty": "medium",
       "buggyCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int secret = 42;\n    int guess;\n    cout << \"猜一个数字：\";\n    cin >> guess;\n    \n    if (guess = secret) {  // 这里有Bug！\n        cout << \"猜对了！\" << endl;\n    } else {\n        if (guess < secret) {\n            cout << \"猜小了！\" << endl;\n        } else {\n            cout << \"猜大了！\" << endl;\n        }\n    }\n    \n    return 0;\n}",
-      "bugs": [
-        {
-          "id": "bug1",
-          "line": 9,
-          "column": 9,
-          "description": "使用了赋值运算符=而不是比较运算符==",
-          "expected": "guess == secret"
-        }
-      ],
       "hints": [
         "比较相等应该用什么运算符？",
         "= 是赋值，== 才是比较",
@@ -173,11 +164,9 @@
       ],
       "expectedFix": "把if (guess = secret)改成if (guess == secret)",
       "altFixes": [
-        "if (guess == secret)",
-        "if (secret == guess)"
+        "guess == secret",
+        "secret == guess"
       ],
-      "referenceCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int secret = 42;\n    int guess;\n    cout << \"猜一个数字：\";\n    cin >> guess;\n    \n    if (guess == secret) {\n        cout << \"猜对了！\" << endl;\n    } else {\n        if (guess < secret) {\n            cout << \"猜小了！\" << endl;\n        } else {\n            cout << \"猜大了！\" << endl;\n        }\n    }\n    \n    return 0;\n}",
-      "validationMode": "normalized",
       "explanation": "== 是比较运算符，判断两边是否相等；= 是赋值运算符，将右边的值赋给左边。if (guess = secret)会把secret的值赋给guess，然后判断赋值表达式的结果（非零值为真），这会导致条件永远成立。",
       "rewardExp": 30,
       "rewardBadge": "branch_bug_hunter"
