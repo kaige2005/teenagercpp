@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(dotnet:*)",
+      "Bash(MSBuild:*)",
+      "Bash(powershell:*)",
+      "Bash(pwsh:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(python:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(du:*)",
+      "Bash(zip:*)",
+      "Bash(unzip:*)",
+      "Bash(tar:*)",
+      "Bash(curl:*)",
+      "Bash(jq:*)",
+      "Bash(sqlite3:*)",
+      "Bash(claude:*)",
+      "Read(//c/Users/Carl/claude-workspace/**)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Skill(update-config)"
+    ]
+  }
+}

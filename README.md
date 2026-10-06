@@ -2,6 +2,19 @@
 
 > 🎮 让C++学习像游戏冒险一样有趣！
 
+---
+
+## ⚠️ 项目状态：已终止（2026-10）
+
+本项目已于 **2026-10-06 停止开发**，最终版本为 **v1.3.0**（[Releases](https://github.com/kaige2005/teenagercpp/releases/tag/v1.3.0)）。仓库作为历史归档保留，不再更新。
+
+- 课程覆盖 **L01–L03**（你好 C++ / 分支魔法 / 数组探险），三课均为"知识讲解 → 编程实践 → Bug猎手"三阶段结构
+- 归档时**不具备 .NET 构建工具链**，因此最终版**未经编译与运行时验证**，发布包由 v1.3.0-beta.2 测试包提升而来
+- ⚠️ **本 README 下方的项目结构、技术栈与路线图停留在早期设计**（如仍写 .NET 4.6.1、`design/` 目录），未随开发更新，仅供参考其原始设计意图
+- 归档资料（产品输入、开发环境）见文末 [📦 归档资料](#-归档资料)
+
+---
+
 ## 项目概述
 
 这是一个专为 **12-16岁青少年** 设计的游戏化C++编程学习平台。系统通过 **故事化课程**、**关卡式教学**、**代码模板生成** 和 **智能评分验证**，帮助学生系统掌握C++编程基础。
@@ -134,6 +147,18 @@ TeenCppEduSystem/
 - [ ] 图形编程支持（EasyX集成）
 - [ ] 项目里程碑系统
 - [ ] 数据导入/导出
+
+## 📦 归档资料
+
+项目终止时一并归档，供将来重启开发时还原上下文：
+
+| 目录 | 内容 |
+|------|------|
+| [`docs/product-inputs/`](docs/product-inputs/) | **产品输入**：项目终极目标陈述、NOI 2025 竞赛大纲（摘要 + 官方全文 + 思维导图）、家庭版游戏化学习方案 → [说明](docs/product-inputs/README.md) |
+| [`docs/dev-environment/`](docs/dev-environment/) | **开发环境**：启动脚本、权限配置样例、用户级配置键位模板 → [说明](docs/dev-environment/README.md) |
+| [`.claude/`](.claude/) | 项目级 Claude Code 配置：skills（`release` / `tdd` / `pd-start` / `pd-review` 等）、预提交检查脚本、响应模式约定 |
+
+> 用户级 `~/.claude/settings.json`（含 API 端点与密钥）**未归档**，原因与恢复方式见 [`docs/dev-environment/README.md`](docs/dev-environment/README.md)。
 
 ## 参与贡献
 
