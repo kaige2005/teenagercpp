@@ -1,25 +1,27 @@
 TeenC++ Education System
-Version: 1.3.0-beta.2
-Release Date: 2026-04-11
-Build: Beta
+Version: 1.3.0
+Release Date: 2026-10-06
+Build: Release (final)
 .NET Framework: 4.8
 
 Features:
-- Lesson 01: Hello C++ (New Phase Format - 190XP)
-- Lesson 02: Branch Magic (New Phase Format - 190XP)
-- Lesson 03: Array Adventure (Updated - 4 Quizzes)
+- Lesson 01: Hello C++ (Unified Phase Format - knowledge/practice/challenge)
+- Lesson 02: Branch Magic (Unified Phase Format - knowledge/practice/challenge)
+- Lesson 03: Array Adventure (Unified Phase Format)
 - Unified Magic Academy Theme
-- Bug Hunter Improvements (beta.2)
+- Bug Hunter Improvements
 
-Bug Fixes (beta.2):
-- Added explicit bug markers for Bug Hunt mode
-- Added reference code for correct answers
-- Improved answer validation (normalized)
+Changes in 1.3.0:
+- L01/L02 rebuilt into the three-phase format (knowledge / practice / challenge)
+- Bug Hunt mode fixes:
+  - explicit bugs[] array marking every bug with line number and expected code
+  - referenceCode added so learners can compare with the correct answer
+  - validationMode "normalized" so whitespace differences no longer fail validation
 
 Note:
-- This is a BETA release for testing
-- Please report any issues
-- Binary compiled from v1.2.0 (no code changes)
+- Binary is identical to v1.2.0 (no code changes); 1.3.0 is a course-content update
+- This is the final archived release; the project was discontinued in 2026-10
+- Not compiled or runtime-verified in the archiving environment (no .NET toolchain available)
 
 Author: Carl & Claude
 Repository: https://github.com/kaige2005/teenagercpp
