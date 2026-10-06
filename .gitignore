@@ -22,10 +22,10 @@ output/
 *.user
 
 # Release packages (large binaries)
+# 发布包作为 GitHub Release 附件上传，不入库
 releases/*.zip
+releases/*.tar.gz
 
 # OS
 .DS_Store
 Thumbs.db
-releases/TeenCppEdu-v1.2.0.tar.gz
-releases/*.zip
